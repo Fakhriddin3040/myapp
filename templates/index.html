@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leeet's go!!</title>
+    <style>
+
+        
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            animation: changeBackgroundColor 10s infinite alternate;
+        }
+
+        @keyframes changeBackgroundColor {
+            0% { background-color: #f2f2f2; }
+            50% { background-color: #eaf2f4; }
+            100% { background-color: #f2f2f2; }
+            
+        }
+
+        .container {
+            max-width: 80%;
+        }
+
+        .speech-bubble {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 15px 15px 0;
+            border-color: #ffffff transparent;
+            display: block;
+            width: 0;
+            z-index: 1;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .speech-text {
+            color: #333333;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .stickers {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }   
+            .ps-container {
+            text-align: center;
+            margin-top: 20px; /* Расстояние от стикеров до P.S. */
+        }
+
+        .ps-text {
+            color: #333333;
+            font-size: 16px;
+        }
+        .second-speech-bubble {
+    background-color: #ffcc00; /* Желтый цвет фона */
+    border-radius: 50%;
+    padding: 20px; /* Увеличим внутренний отступ */
+    position: relative;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.second-speech-bubble::before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: #ffcc00 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.second-speech-text h1 {
+    margin-top: 10;
+    font-size: 24px; /* Увеличим размер заголовка */
+    text-transform: uppercase; /* Преобразуем заголовок в верхний регистр */
+}
+
+.second-speech-text p {
+    margin-bottom: 10px; /* Увеличим отступ между абзацами */
+    font-style: italic; /* Сделаем текст курсивом */
+    font-size: 10px; /* Уменьшим размер текста */
+}
+
+
+        
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f2f2f2;
+    background-size: 200% auto;
+    animation: backgroundAnimation 20s ease infinite;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="speechBubble" class="speech-bubble">
+            <div id="speechText" class="speech-text">
+                <h1>Let's do this!!!</h1>
+                <p>A little moral support from me.
+                    Just be calm. It's just an Olimpiad.</p>
+                <p>You will get it.</p>
+            </div>
+        </div>
+        
+            <div class="stickers">
+            </div>
+        <div class="second-speech-bubble">
+            <div class="second-speech-text">
+                <h1>Required Dua!</h1>
+                <p>Allahu laaa ilaaha illaa huwal haiyul qai-yoom; laa taakhuzuhoo sinatunw wa laa nawm; lahoo maa fissamaawaati wa maa fil ard; man zallazee yashfa'u indahooo illaa be iznih; ya'lamu maa baina aideehim wa maa khalfahum; wa laa yuheetoona beshai 'immin 'ilmihee illa be maa shaaaa; wasi'a kursiyyuhus samaa waati wal arda wa la ya'ooduho hifzuhumaa; wa huwal aliyyul 'azeem
+                </p>
+                <p>Keep going!
+                </p>
+            </div>
+        </div>
+        <div class="ps-container">
+            <p class="ps-text">P.S: If you lose, don't cry =) 
+            <p class="ps-text">Just kidding, you will win!
+            <p class="ps-text">Good luck!
+            </p>
+        </div>
+        </div>
+    
+        
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var stickersContainer = document.querySelector(".stickers");
+        var speechBubble = document.getElementById("speechBubble");
+        var speechText = document.getElementById("speechText");
+        var secondSpeechBubble = document.querySelector(".second-speech-bubble");
+        var secondSpeechText = document.querySelector(".second-speech-text");
+        var psContainer = document.querySelector(".ps-container");
+
+        var stickersData = [
+            { src: "http://31.129.107.201/media/images/original/clever.png", alt: "Sticker 1" },
+            { src: "http://31.129.107.201/media/images/original/stay-positive1.png", alt: "Sticker 2" },
+            { src: "http://31.129.107.201/media/images/original/youcandoit.png", alt: "Sticker 3" }
+        ];
+
+        stickersData.forEach(function(stickerData) {
+            var img = document.createElement("img");
+            img.src = stickerData.src;
+            img.alt = stickerData.alt;
+            img.width = 100;
+            img.height = 100;
+            img.classList.add("sticker");
+            img.addEventListener("click", function() {
+                moveSticker(this);
+            });
+            stickersContainer.appendChild(img);
+        });
+
+        // Анимация всплывающего облака при загрузке страницы
+        speechBubble.style.opacity = 0;
+        speechBubble.style.transform = "translateY(50px)";
+        setTimeout(function() {
+            speechBubble.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            speechBubble.style.opacity = 1;
+            speechBubble.style.transform = "translateY(0)";
+        }, 500);
+
+        // Анимация появления текста в облаке
+        var paragraphs = speechText.querySelectorAll("p");
+        for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.opacity = 0;
+            paragraphs[i].style.transform = "translateY(20px)";
+        }
+        setTimeout(function() {
+            for (var i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                paragraphs[i].style.opacity = 1;
+                paragraphs[i].style.transform = "translateY(0)";
+            }
+        }, 1000);
+
+        // Анимация появления стикеров
+        var stickers = document.querySelectorAll(".sticker");
+        for (var i = 0; i < stickers.length; i++) {
+            stickers[i].style.opacity = 0;
+            stickers[i].style.transform = "translateY(50px)";
+            stickers[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        }
+        setTimeout(function() {
+            for (var i = 0; i < stickers.length; i++) {
+                stickers[i].style.opacity = 1;
+                stickers[i].style.transform = "translateY(0)";
+            }
+        }, 1500);
+
+        // Анимация появления второго облака
+        secondSpeechBubble.style.opacity = 0;
+        secondSpeechBubble.style.transform = "translateY(50px)";
+        setTimeout(function() {
+            secondSpeechBubble.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            secondSpeechBubble.style.opacity = 1;
+            secondSpeechBubble.style.transform = "translateY(0)";
+        }, 2000);
+
+        // Анимация появления текста во втором облаке
+        var secondParagraphs = secondSpeechText.querySelectorAll("p");
+        for (var i = 0; i < secondParagraphs.length; i++) {
+            secondParagraphs[i].style.opacity = 0;
+            secondParagraphs[i].style.transform = "translateY(20px)";
+        }
+        setTimeout(function() {
+            for (var i = 0; i < secondParagraphs.length; i++) {
+                secondParagraphs[i].style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                secondParagraphs[i].style.opacity = 1;
+                secondParagraphs[i].style.transform = "translateY(0)";
+            }
+        }, 2500);
+
+        // Анимация появления P.S.
+        psContainer.style.opacity = 0;
+        psContainer.style.transform = "translateY(50px)";
+        setTimeout(function() {
+            psContainer.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            psContainer.style.opacity = 1;
+            psContainer.style.transform = "translateY(0)";
+        }, 3000);
+    });
+
+    function moveSticker(sticker) {
+        var maxX = 100;
+        var maxY = 150;
+        var randomX = Math.floor(Math.random() * maxX);
+        var randomY = Math.floor(Math.random() * maxY);
+        sticker.style.transition = "transform 1s ease";
+        sticker.style.animation = "moveSticker 1s ease-in-out";
+        sticker.style.transform = "translate(" + randomX + "px, " + randomY + "px)";
+    }
+</script>
+                </body>
+    </html>
